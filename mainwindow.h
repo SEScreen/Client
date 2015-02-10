@@ -21,6 +21,8 @@ public:
     QSystemTrayIcon *trayIcon;
 private slots:
     void iconActivated(QSystemTrayIcon::ActivationReason);
+    void on_pushButton_clicked();
+ void downloadStatus();
 private:
     Ui::MainWindow *ui;
 };

@@ -20,11 +20,24 @@
       <x>60</x>
       <y>90</y>
       <width>261</width>
-      <height>16</height>
+      <height>61</height>
      </rect>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Привет мир, я пошел спать, азаза&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Привет мир, я пошел спать, азаза&lt;/p&gt;&lt;p&gt;Hello world!&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>180</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Залипить </string>
     </property>
    </widget>
   </widget>
@@ -34,9 +47,20 @@
      <x>0</x>
      <y>0</y>
      <width>400</width>
-     <height>19</height>
+     <height>21</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>Хуй тебе</string>
+    </property>
+    <addaction name="action"/>
+    <addaction name="action_2"/>
+    <addaction name="action_3"/>
+    <addaction name="action_4"/>
+    <addaction name="action_5"/>
+   </widget>
+   <addaction name="menu"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -47,6 +71,31 @@
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <action name="action">
+   <property name="text">
+    <string>ХУй тебе</string>
+   </property>
+  </action>
+  <action name="action_2">
+   <property name="text">
+    <string>Вставить</string>
+   </property>
+  </action>
+  <action name="action_3">
+   <property name="text">
+    <string>Отрезать</string>
+   </property>
+  </action>
+  <action name="action_4">
+   <property name="text">
+    <string>Удалить</string>
+   </property>
+  </action>
+  <action name="action_5">
+   <property name="text">
+    <string>Добавить в кэш</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
