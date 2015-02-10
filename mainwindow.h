@@ -16,13 +16,14 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(QWidget *parent = 0);
-
     ~MainWindow();
     QSystemTrayIcon *trayIcon;
 private slots:
     void iconActivated(QSystemTrayIcon::ActivationReason);
     void on_pushButton_clicked();
  void downloadStatus();
+ void on_cancel_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

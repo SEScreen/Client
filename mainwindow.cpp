@@ -74,3 +74,8 @@ void MainWindow::downloadStatus()
 {
  trayIcon->showMessage(trUtf8("Отправили"),trUtf8(""),QSystemTrayIcon::Warning);
 }
+
+void MainWindow::on_cancel_clicked()
+{
+
+}
