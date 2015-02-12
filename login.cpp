@@ -6,6 +6,7 @@ Login::Login(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Login)
 {
+
     ui->setupUi(this);
 }
 Login::~Login()
@@ -18,6 +19,8 @@ void Login::replyFinished(QNetworkReply* r){
     if(*apikey!="E0"){
         l->close();
         w->show();
+        l->destroy();
+
     }else{
         QMessageBox::critical(this,"Error","Password or login incorrect");
     }

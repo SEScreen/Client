@@ -21,12 +21,15 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     login.cpp \
-    apiconnector.cpp
+    apiconnector.cpp \
+    screendialog.cpp
 
 HEADERS  += mainwindow.h \
     login.h \
     main.h \
-    apiconnector.h
+    apiconnector.h \
+    screendialog.h
 
 FORMS    += mainwindow.ui \
-    login.ui
+    login.ui \
+    screendialog.ui

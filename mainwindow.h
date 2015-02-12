@@ -17,6 +17,7 @@ public:
     
 private slots:
     void on_comboBox_activated(const QString &arg1);
+    void onSCH();
 
 private:
     Ui::MainWindow *ui;
