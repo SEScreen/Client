@@ -13,19 +13,20 @@ QXT     += gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
+
 TARGET = SEScreenClient
 TEMPLATE = app
 
 
 SOURCES += main.cpp\
         mainwindow.cpp \
+    login.cpp \
     apiconnector.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    login.h \
+    main.h \
+    apiconnector.h
 
-FORMS    += mainwindow.ui
-
-OTHER_FILES += icon.png
-
-RESOURCES += \
-    res.qrc
+FORMS    += mainwindow.ui \
+    login.ui

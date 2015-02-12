@@ -3,7 +3,10 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+extern MainWindow *w;
+extern Login *l;
+extern QString *apikey;
 
-void check_user(QString login, QString password);
+void setPropAndUpdate(QWidget *wid,const char *name, const QVariant &value);
 
 #endif // MAIN_H

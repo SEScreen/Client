@@ -2,7 +2,9 @@
 #define LOGIN_H
 
 #include <QWidget>
-
+#include <QNetworkRequest>
+#include <QNetworkAccessManager>
+#include <QNetworkReply>
 namespace Ui {
 class Login;
 }
@@ -16,7 +18,7 @@ public:
     ~Login();
     
 private slots:
-
+    void replyFinished(QNetworkReply* r);
     void on_entryButton_clicked();
 
 private:
