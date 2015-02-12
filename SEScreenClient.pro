@@ -18,7 +18,8 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    apiconnector.cpp
 
 HEADERS  += mainwindow.h
 
