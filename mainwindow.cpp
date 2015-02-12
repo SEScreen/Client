@@ -21,7 +21,7 @@ void MainWindow::onSCH(){
 
     QPixmap grab=QPixmap::grabWindow(QApplication::desktop()->winId());
 
-    //sd->setScreen(&grab);
+    sd->setScreen(&grab);
     Qt::WindowFlags eFlags = sd->windowFlags ();
     eFlags |= Qt::WindowStaysOnTopHint;
     sd->setWindowFlags(eFlags);

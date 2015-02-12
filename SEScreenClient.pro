@@ -22,13 +22,15 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     login.cpp \
     apiconnector.cpp \
-    screendialog.cpp
+    screendialog.cpp \
+    clickablelabel.cpp
 
 HEADERS  += mainwindow.h \
     login.h \
     main.h \
     apiconnector.h \
-    screendialog.h
+    screendialog.h \
+    clickablelabel.h
 
 FORMS    += mainwindow.ui \
     login.ui \

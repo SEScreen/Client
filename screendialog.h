@@ -16,6 +16,9 @@ public:
     ~ScreenDialog();
     void setScreen(QPixmap *grab);
 
+private slots:
+    void on_imgEdit_clicked();
+
 private:
     Ui::ScreenDialog *ui;
 };
