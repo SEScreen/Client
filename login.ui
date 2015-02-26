@@ -13,7 +13,7 @@
   <property name="maximumSize">
    <size>
     <width>400</width>
-    <height>200</height>
+    <height>223</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -22,22 +22,38 @@
   <property name="styleSheet">
    <string notr="true">QLineEdit {
      border: 1px solid gray;
+     height:25px;
 }
 
  QLineEdit[error=&quot;true&quot;] {
-     border: 1px solid red;
-}</string>
+     border: 1px solid rgba(255,0,0,100);
+}
+
+</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0" colspan="2">
     <widget class="QLabel" name="label_3">
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
      <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Чтобы начать пользоваться программой SEScreen&lt;br/&gt; введите логин и пароль, указанные при &lt;a href=&quot;#&quot;&gt;регистрации&lt;/a&gt;.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <string>&lt;html&gt;&lt;head&gt;&lt;style&gt;
+a{
+text-decoration:none;
+} &lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;Чтобы начать пользоваться программой SEScreen&lt;br/&gt; введите логин и пароль, указанные при &lt;a href=&quot;#&quot;  &gt;регистрации&lt;/a&gt;.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
    </item>
    <item row="5" column="0">
     <widget class="QPushButton" name="entryButton">
+     <property name="styleSheet">
+      <string notr="true">QPushButton{
+background:red;
+height:25px;
+border-radius:0;
+}</string>
+     </property>
      <property name="text">
       <string>Войти</string>
      </property>
@@ -46,7 +62,7 @@
    <item row="2" column="0" colspan="2">
     <widget class="QLineEdit" name="login">
      <property name="styleSheet">
-      <string notr="true"> </string>
+      <string notr="true"/>
      </property>
     </widget>
    </item>
