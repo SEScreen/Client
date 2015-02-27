@@ -16,10 +16,7 @@ void setPropAndUpdate(QWidget *wid,const char *name, const QVariant &value){
 #include <QFile>
 int main(int argc, char *argv[])
 {
-    QFile file("config.txt");
-    file.open(QIODevice::ReadOnly);
-    QByteArray apikeyC = file.readLine();
-    file.close();
+
 /*
     QUrl params;
     params.addQueryItem("apikey",apikeyC);
@@ -29,11 +26,17 @@ int main(int argc, char *argv[])
     req.setHeader(QNetworkRequest::ContentTypeHeader,QVariant("application/x-www-form-urlencoded"));
     manager->post(req,params.encodedQuery());
 */
-    QNetworkRequest* req=new QNetworkRequest(QUrl("http://128.75.230.182:8080/login"));
-    apicon->sendHttpGet(req);
+
 
 //Посылаешь запрос и если есть такой, то открываешь  w->show(); если нет, то код ниже
     QApplication a(argc, argv);
+    QFile file("config.txt");
+    file.open(QIODevice::ReadOnly);
+    QByteArray apikeyC = file.readLine();
+    file.close();
+
+    QNetworkRequest* req=new QNetworkRequest(QUrl("http://128.75.230.182:8080/login"));
+    apicon->sendHttpGet(req);
     w=new MainWindow;
     l=new Login;
     sd=new ScreenDialog;

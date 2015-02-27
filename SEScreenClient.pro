@@ -8,8 +8,8 @@
 
 QT       += core gui svg network
 
-CONFIG  += qxt
-QXT     += gui
+#CONFIG  += qxt
+#QXT     += gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 

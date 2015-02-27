@@ -2,14 +2,18 @@
 #include "ui_mainwindow.h"
 #include <QShortcut>
 #include <QDesktopWidget>
+#ifdef USE_QXT
 #include <QxtGlobalShortcut>
+#endif
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    #ifdef USE_QXT
     QxtGlobalShortcut *shortcut = new QxtGlobalShortcut(QKeySequence(Qt::Key_Print));
     connect(shortcut,SIGNAL(activated()), this, SLOT(onSCH()));
+    #endif
 }
 
 MainWindow::~MainWindow()

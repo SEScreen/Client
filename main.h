@@ -2,9 +2,10 @@
 #include "mainwindow.h"
 #include "screendialog.h"
 #include "apiconnector.h"
+
 #ifndef MAIN_H
 #define MAIN_H
-
+//#define USE_QXT
 extern ScreenDialog *sd;
 extern MainWindow *w;
 extern Login *l;
