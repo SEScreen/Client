@@ -34,3 +34,4 @@ HEADERS  += mainwindow.h \
 FORMS    += mainwindow.ui \
     login.ui \
     screendialog.ui
+QMAKE_CXXFLAGS += -std=gnu++11

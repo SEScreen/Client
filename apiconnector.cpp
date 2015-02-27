@@ -3,23 +3,30 @@
 ApiConnector::ApiConnector(QObject *parent) :
     QObject(parent)
 {
+
     manager=new QNetworkAccessManager(this);
 }
 
 QNetworkReply* ApiConnector::sendHttpGet(QNetworkRequest *req){
-    QNetworkReply *rep=manager->get(*req);
+    QNetworkReply *reply=manager->get(*req);
     QTimer* timer=new QTimer(this);
     timer->setInterval(1000);
     timer->setSingleShot(true);
     timer->start();
-    connect(timer,SIGNAL(timeout()),this,SLOT(timedout(timer,rep)));
-    return rep;
+    connect(timer,&QTimer::timeout,[reply]{reply->abort();});
+    return reply;
 }
 
-void ApiConnector::timedout(QTimer *timer, QNetworkReply *rep){
-    rep->abort();
-}
 
+QNetworkReply* ApiConnector::sendHttpPost(QNetworkRequest *req,QByteArray params){
+    QNetworkReply *reply=manager->post(*req,params);
+    QTimer* timer=new QTimer(this);
+    timer->setInterval(1000);
+    timer->setSingleShot(true);
+    timer->start();
+    connect(timer,&QTimer::timeout,[reply]{reply->abort();});
+    return reply;
+}
 void ApiConnector::resetTimer(QTimer *timer){
     timer->setInterval(1000);
 }
