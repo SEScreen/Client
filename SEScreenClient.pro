@@ -6,12 +6,10 @@
 
 
 
-QT       += core gui svg network
+QT       += core gui network widgets
 
 #CONFIG  += qxt
 #QXT     += gui
-
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 
 TARGET = SEScreenClient
@@ -30,7 +28,8 @@ HEADERS  += mainwindow.h \
     main.h \
     apiconnector.h \
     screendialog.h \
-    clickablelabel.h
+    clickablelabel.h \
+    configuration.h
 
 FORMS    += mainwindow.ui \
     login.ui \

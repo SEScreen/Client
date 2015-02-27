@@ -1,3 +1,4 @@
+#include "configuration.h"
 #include "login.h"
 #include "mainwindow.h"
 #include "screendialog.h"

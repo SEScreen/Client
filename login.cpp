@@ -3,6 +3,7 @@
 #include <QString>
 #include <QMessageBox>
 #include <QFile>
+#include <QUrlQuery>
 Login::Login(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Login)
@@ -21,11 +22,11 @@ void Login::replyFinished(QNetworkReply* r){
         l->close();
         w->show();
         l->destroy();
-        qDebug(apikey->toAscii());
+        qDebug(apikey->toLatin1());
 
         QFile file("config.txt");
         file.open(QIODevice::WriteOnly);
-        file.write(apikey->toAscii());
+        file.write(apikey->toLatin1());
         file.close();
 
     }else{
@@ -42,13 +43,13 @@ void Login::on_entryButton_clicked(){
     if(login=="" || password==""){
         return;
     }
-    QUrl params;
+    QUrlQuery params;
     params.addQueryItem("email",login);
     params.addQueryItem("password",password);
-    QNetworkRequest req(QUrl("http://128.75.230.182:8080/login"));
+    QNetworkRequest req(QUrl (API_URL+"/login"));
     QNetworkAccessManager *manager = new QNetworkAccessManager(this);
     connect(manager, SIGNAL(finished(QNetworkReply*)),this, SLOT(replyFinished(QNetworkReply*)));
     req.setHeader(QNetworkRequest::ContentTypeHeader,QVariant("application/x-www-form-urlencoded"));
-    manager->post(req,params.encodedQuery());
+    manager->post(req,params.query().toUtf8());
 
 }

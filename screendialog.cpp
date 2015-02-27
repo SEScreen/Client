@@ -33,7 +33,7 @@ void ScreenDialog::send(){
 QHttpMultiPart *multiPart = new QHttpMultiPart(QHttpMultiPart::FormDataType);
 QHttpPart textPart;
 textPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant("form-data; name=\"apikey\""));
-textPart.setBody(apikey->toAscii());
+textPart.setBody(apikey->toLatin1());
 QHttpPart imagePart;
 imagePart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant("form-data; name=\"file\"; filename=\"icon.png\""));
 imagePart.setHeader(QNetworkRequest::ContentTypeHeader, QVariant("image/png"));
@@ -46,7 +46,7 @@ imagePart.setBody(bArray);
 multiPart->append(textPart);
 multiPart->append(imagePart);
 multiPart->setBoundary("boundaryHere_OOOOOO");
-QNetworkRequest req(QUrl("http://128.75.230.182:8080/upload"));
+QNetworkRequest req(QUrl(WEB_URL+"/upload"));
 QNetworkAccessManager *manager = new QNetworkAccessManager(this);
 connect(manager, SIGNAL(finished(QNetworkReply*)),
 this, SLOT(replyFinished(QNetworkReply*)));
@@ -58,7 +58,7 @@ multiPart->setParent(rpl);
 void ScreenDialog::replyFinished(QNetworkReply* r)
 {
     QString str=r->readAll();
-    qDebug(str.toAscii());
+    qDebug(str.toLatin1());
     QMessageBox::information(this,"Status",str);
     QApplication::clipboard()->setText(str);
 }
