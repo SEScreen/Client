@@ -6,15 +6,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>379</width>
-    <height>162</height>
+    <width>382</width>
+    <height>208</height>
    </rect>
   </property>
   <property name="maximumSize">
    <size>
     <width>400</width>
-    <height>223</height>
+    <height>243</height>
    </size>
+  </property>
+  <property name="font">
+   <font>
+    <family>Aaargh</family>
+   </font>
   </property>
   <property name="windowTitle">
    <string>Вход</string>
@@ -26,32 +31,31 @@
 }
 
  QLineEdit[error=&quot;true&quot;] {
-     border: 1px solid rgba(255,0,0,100);
+     background: 1px solid rgba(255,0,0,100);
 }
+QWidget{	
+     background: rgb(218, 223, 225);
+}
+
 
 </string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0" colspan="2">
-    <widget class="QLabel" name="label_3">
-     <property name="styleSheet">
-      <string notr="true"/>
-     </property>
-     <property name="text">
-      <string>&lt;html&gt;&lt;head&gt;&lt;style&gt;
-a{
-text-decoration:none;
-} &lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;Чтобы начать пользоваться программой SEScreen&lt;br/&gt; введите логин и пароль, указанные при &lt;a href=&quot;#&quot;  &gt;регистрации&lt;/a&gt;.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-     </property>
-    </widget>
-   </item>
    <item row="5" column="0">
     <widget class="QPushButton" name="entryButton">
+     <property name="font">
+      <font>
+       <family>Aaargh</family>
+      </font>
+     </property>
      <property name="styleSheet">
       <string notr="true">QPushButton{
-background:red;
-height:25px;
-border-radius:0;
+	background: #9E9E9E;
+	height: 25px;
+	border-radius: 0;
+}
+GPushButton:hover{
+	background: #B6B6B6;
 }</string>
      </property>
      <property name="text">
@@ -59,15 +63,13 @@ border-radius:0;
      </property>
     </widget>
    </item>
-   <item row="2" column="0" colspan="2">
-    <widget class="QLineEdit" name="login">
-     <property name="styleSheet">
-      <string notr="true"/>
-     </property>
-    </widget>
-   </item>
    <item row="4" column="0" colspan="2">
     <widget class="QLineEdit" name="password">
+     <property name="font">
+      <font>
+       <family>Aaargh</family>
+      </font>
+     </property>
      <property name="styleSheet">
       <string notr="true"/>
      </property>
@@ -76,27 +78,92 @@ border-radius:0;
      </property>
     </widget>
    </item>
+   <item row="2" column="0" colspan="2">
+    <widget class="QLineEdit" name="login">
+     <property name="font">
+      <font>
+       <family>Aaargh</family>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0" colspan="2">
+    <widget class="QLabel" name="label">
+     <property name="font">
+      <font>
+       <family>Aaargh</family>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel{
+background:rgba(0,0,0,000);
+}</string>
+     </property>
+     <property name="text">
+      <string>Логин:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="0" colspan="2">
+    <widget class="QLabel" name="label_2">
+     <property name="font">
+      <font>
+       <family>Aaargh</family>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel{	
+	background: rgba(0,0,0,000);	
+}</string>
+     </property>
+     <property name="text">
+      <string>Пароль:</string>
+     </property>
+    </widget>
+   </item>
    <item row="5" column="1">
     <widget class="QLabel" name="label_4">
+     <property name="font">
+      <font>
+       <family>Aaargh</family>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel{
+	background: rgba(0,0,0,000);
+}</string>
+     </property>
      <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;#&quot;&gt;Забыли пароль&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;#&quot; style=&quot;text-decoration:none;color: #4183D7;&quot;&gt;Забыли пароль&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
      </property>
     </widget>
    </item>
-   <item row="3" column="0" colspan="2">
-    <widget class="QLabel" name="label_2">
-     <property name="text">
-      <string>Пароль:</string>
+   <item row="0" column="0" colspan="2">
+    <widget class="QLabel" name="label_3">
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>50</height>
+      </size>
      </property>
-    </widget>
-   </item>
-   <item row="1" column="0" colspan="2">
-    <widget class="QLabel" name="label">
+     <property name="font">
+      <font>
+       <family>Aaargh</family>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel{
+background: rgba(0,0,0,000);
+}</string>
+     </property>
      <property name="text">
-      <string>Логин:</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Чтобы начать пользоваться программой SEScreen,&lt;br/&gt;введите логин и пароль, указанные при &lt;a href=&quot;#&quot;&gt;&lt;span style=&quot; text-decoration: none; color:#0000ff; color:#4183D7;&quot;&gt;регистрации&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
    </item>
