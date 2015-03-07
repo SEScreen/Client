@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>382</width>
+    <width>387</width>
     <height>208</height>
    </rect>
   </property>
@@ -54,7 +54,7 @@ QWidget{
 	height: 25px;
 	border-radius: 0;
 }
-GPushButton:hover{
+GPushButton:pressed{
 	background: #B6B6B6;
 }</string>
      </property>
@@ -103,7 +103,7 @@ background:rgba(0,0,0,000);
 }</string>
      </property>
      <property name="text">
-      <string>Логин:</string>
+      <string>E-mail:</string>
      </property>
     </widget>
    </item>
@@ -163,7 +163,7 @@ background: rgba(0,0,0,000);
 }</string>
      </property>
      <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Чтобы начать пользоваться программой SEScreen,&lt;br/&gt;введите логин и пароль, указанные при &lt;a href=&quot;#&quot;&gt;&lt;span style=&quot; text-decoration: none; color:#0000ff; color:#4183D7;&quot;&gt;регистрации&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Чтобы начать пользоваться программой SEScreen,&lt;br/&gt;введите e-mail и пароль, указанные при &lt;a href=&quot;#&quot;&gt;&lt;span style=&quot; text-decoration: none; color:#0000ff; color:#4183D7;&quot;&gt;регистрации&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
    </item>
