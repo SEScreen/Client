@@ -13,7 +13,20 @@
   <property name="windowTitle">
    <string>Вяся Пупкин</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">@font-face{
+	font-family: AaarghBold;
+	src: url(&quot;\Web\www\fonts\aaargh_cyrillic_bold.ttf&quot;);
+}</string>
+  </property>
   <widget class="QWidget" name="centralWidget">
+   <property name="font">
+    <font>
+     <family>Aaargh</family>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
@@ -22,6 +35,18 @@
       <width>171</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Aaargh</family>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel{
+	padding-left:20px;
+}</string>
     </property>
     <property name="text">
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;Настройки&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -32,9 +57,20 @@
      <rect>
       <x>10</x>
       <y>40</y>
-      <width>131</width>
-      <height>16</height>
+      <width>151</width>
+      <height>31</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Aaargh</family>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel{
+	font-family:Aaargh;
+}</string>
     </property>
     <property name="text">
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Адрес сохранения: &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -43,9 +79,9 @@
    <widget class="QComboBox" name="comboBox">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>32</y>
-      <width>78</width>
+      <x>160</x>
+      <y>40</y>
+      <width>71</width>
       <height>31</height>
      </rect>
     </property>

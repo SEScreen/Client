@@ -31,7 +31,7 @@
 }
 
  QLineEdit[error=&quot;true&quot;] {
-     background: 1px solid rgba(255,0,0,100);
+     background: 1px solid #FFCDD2;
 }
 QWidget{	
      background: rgb(218, 223, 225);
