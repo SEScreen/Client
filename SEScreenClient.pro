@@ -8,8 +8,8 @@
 
 QT       += core gui network widgets
 
-#CONFIG  += qxt
-#QXT     += gui
+CONFIG  += qxt
+QXT     += gui core
 
 
 TARGET = SEScreenClient
@@ -21,7 +21,8 @@ SOURCES += main.cpp\
     login.cpp \
     apiconnector.cpp \
     screendialog.cpp \
-    clickablelabel.cpp
+    clickablelabel.cpp \
+    edit.cpp
 
 HEADERS  += mainwindow.h \
     login.h \
@@ -29,9 +30,14 @@ HEADERS  += mainwindow.h \
     apiconnector.h \
     screendialog.h \
     clickablelabel.h \
-    configuration.h
+    configuration.h \
+    edit.h
 
 FORMS    += mainwindow.ui \
     login.ui \
-    screendialog.ui
+    screendialog.ui \
+    edit.ui
 QMAKE_CXXFLAGS += -std=gnu++11
+
+RESOURCES += \
+    res.qrc

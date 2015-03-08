@@ -19,10 +19,10 @@ void ScreenDialog::setScreen(QPixmap *grab){
     QPixmap sc;
     ui->imgEdit->updateGeometry();
     if(r.height()>r.width()){
-       sc =grab->scaledToHeight(rs.height());
+        sc =grab->scaledToHeight(rs.height());
     }else{
         cout<< rs.width()<<endl;
-       sc =grab->scaledToWidth(rs.width());
+        sc =grab->scaledToWidth(rs.width());
     }
     ui->imgEdit->setPixmap(sc);
     this->move(QApplication::desktop()->availableGeometry().center() - this->rect().center());
@@ -30,37 +30,39 @@ void ScreenDialog::setScreen(QPixmap *grab){
 
 
 void ScreenDialog::send(){
-QHttpMultiPart *multiPart = new QHttpMultiPart(QHttpMultiPart::FormDataType);
-QHttpPart textPart;
-textPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant("form-data; name=\"apikey\""));
-textPart.setBody(apikey->toLatin1());
-QHttpPart imagePart;
-imagePart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant("form-data; name=\"file\"; filename=\"icon.png\""));
-imagePart.setHeader(QNetworkRequest::ContentTypeHeader, QVariant("image/png"));
-QPixmap pix=screen;
-QByteArray bArray;
-QBuffer buffer( &bArray );
-buffer.open( QIODevice::WriteOnly );
-pix.save( &buffer, "PNG" );
-imagePart.setBody(bArray);
-multiPart->append(textPart);
-multiPart->append(imagePart);
-multiPart->setBoundary("boundaryHere_OOOOOO");
-QNetworkRequest req(QUrl(WEB_URL+"/upload"));
-QNetworkAccessManager *manager = new QNetworkAccessManager(this);
-connect(manager, SIGNAL(finished(QNetworkReply*)),
-this, SLOT(replyFinished(QNetworkReply*)));
-QNetworkReply *rpl= manager->post(req,multiPart);
-multiPart->setParent(rpl);
+    QHttpMultiPart *multiPart = new QHttpMultiPart(QHttpMultiPart::FormDataType);
+    QHttpPart textPart;
+    textPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant("form-data; name=\"apikey\""));
+    textPart.setBody(apikey->toLatin1());
+    QHttpPart imagePart;
+    imagePart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant("form-data; name=\"file\"; filename=\"screen.png\""));
+    imagePart.setHeader(QNetworkRequest::ContentTypeHeader, QVariant("image/png"));
+    QPixmap pix=screen;
+    QByteArray bArray;
+    QBuffer buffer( &bArray );
+    buffer.open( QIODevice::WriteOnly );
+    pix.save( &buffer, "PNG" );
+    imagePart.setBody(bArray);
+    multiPart->append(textPart);
+    multiPart->append(imagePart);
+    QNetworkRequest req(QUrl(API_URL+"/upload"));
+    QNetworkAccessManager *manager = new QNetworkAccessManager(this);
+    connect(manager, SIGNAL(finished(QNetworkReply*)),
+            this, SLOT(replyFinished(QNetworkReply*)));
+    QNetworkReply *rpl= manager->post(req,multiPart);
+    multiPart->setParent(rpl);
 }
 
 
 void ScreenDialog::replyFinished(QNetworkReply* r)
 {
     QString str=r->readAll();
-    qDebug(str.toLatin1());
-    QMessageBox::information(this,"Status",str);
-    QApplication::clipboard()->setText(str);
+    if(str!="E0" || str!="E1"){
+        QApplication::clipboard()->setText(API_URL+str);
+        w->trayIcon->showMessage("OK!","Uploaded as "+API_URL+str);
+    }else{
+        w->trayIcon->showMessage("Hmm?!","Strange error");
+    }
 }
 
 ScreenDialog::~ScreenDialog()
@@ -83,7 +85,7 @@ void ScreenDialog::on_copyButton_clicked()
 {
     qDebug("tt");
     QClipboard *cb=QApplication::clipboard();
-    cb->setPixmap(screen);
+    cb->setPixmap(screen.copy());
 }
 
 void ScreenDialog::on_uploadButton_clicked()

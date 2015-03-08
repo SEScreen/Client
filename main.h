@@ -6,11 +6,12 @@
 
 #ifndef MAIN_H
 #define MAIN_H
-//#define USE_QXT
+
 extern ScreenDialog *sd;
 extern MainWindow *w;
 extern Login *l;
 extern QString *apikey;
+extern QString *username;
 extern ApiConnector *apicon;
 
 void setPropAndUpdate(QWidget *wid,const char *name, const QVariant &value);

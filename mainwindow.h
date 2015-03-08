@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QString>
+#include <QSystemTrayIcon>
 namespace Ui {
 class MainWindow;
 }
@@ -14,13 +15,20 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-    
+    QSystemTrayIcon *trayIcon;
+    void show();
+
 private slots:
     void on_comboBox_activated(const QString &arg1);
     void onSCH();
+    void initMenu();
+    void quit();
 
+    void trayActivated(QSystemTrayIcon::ActivationReason);
 private:
     Ui::MainWindow *ui;
+    QMenu *trayMenu;
+
 };
 
 
