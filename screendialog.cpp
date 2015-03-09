@@ -1,6 +1,9 @@
 #include "screendialog.h"
 #include "ui_screendialog.h"
 #include "main.h"
+#include "lambdaconnect.h"
+#include "edit.h"
+#include <QxtWindowSystem>
 ScreenDialog::ScreenDialog(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::ScreenDialog)
@@ -12,7 +15,9 @@ using namespace std;
 #include <QDesktopWidget>
 #include <QClipboard>
 #include <QMessageBox>
+#include <QGraphicsTextItem>
 void ScreenDialog::setScreen(QPixmap *grab){
+    WindowList wl=QxtWindowSystem::windows();
     screen=grab->copy();
     QRect r=grab->rect();
     QRect rs=ui->imgEdit->rect();
@@ -25,6 +30,19 @@ void ScreenDialog::setScreen(QPixmap *grab){
         sc =grab->scaledToWidth(rs.width());
     }
     ui->imgEdit->setPixmap(sc);
+    connectL(ui->imgEdit,SIGNAL(clicked()),[wl]{Edit* e=new Edit();
+        int i=0;
+        for(WId w:wl){
+            QRect r=QxtWindowSystem::windowGeometry(w);
+            e->scene->addRect(r);
+            QGraphicsTextItem *qgti=
+            e->scene->addText(QString::number(i));
+            qgti->setPos(r.center().x(),r.center().y());
+
+            i++;
+        }
+        e->show();
+    });
     this->move(QApplication::desktop()->availableGeometry().center() - this->rect().center());
 }
 
@@ -54,12 +72,14 @@ void ScreenDialog::send(){
 }
 
 
+
+
 void ScreenDialog::replyFinished(QNetworkReply* r)
 {
     QString str=r->readAll();
     if(str!="E0" || str!="E1"){
-        QApplication::clipboard()->setText(API_URL+str);
-        w->trayIcon->showMessage("OK!","Uploaded as "+API_URL+str);
+        QApplication::clipboard()->setText(WEB_URL+str);
+        w->trayIcon->showMessage("OK!","Uploaded as "+WEB_URL+str);
     }else{
         w->trayIcon->showMessage("Hmm?!","Strange error");
     }
@@ -83,7 +103,6 @@ void ScreenDialog::on_cancelBut_clicked()
 
 void ScreenDialog::on_copyButton_clicked()
 {
-    qDebug("tt");
     QClipboard *cb=QApplication::clipboard();
     cb->setPixmap(screen.copy());
 }

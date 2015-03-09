@@ -7,19 +7,38 @@
 #ifdef USE_QXT
     #include <QxtGlobalShortcut>
 #endif
+#include <QCloseEvent>
+#include <QClipboard>
+#include "lambdaconnect.h"
+void MainWindow::rebuildMenu(){
 
-void MainWindow::quit(){
-    QApplication::quit();
-}
+    QAction *sett=new QAction(tr("&Settings"), this);
+    connect(sett,SIGNAL(triggered()),this,SLOT(show()));
 
-void MainWindow::initMenu(){
+    trayMenu->addAction(sett);
+
+
     QAction* scr=new QAction(tr("&Screen"), this);
     connect(scr,SIGNAL(triggered()),this,SLOT(onSCH()));
     trayMenu->addAction(scr);
+    QAction* clipB=new QAction(tr("&From Clipboard"), this);
+    connectL(clipB,SIGNAL(triggered()),[]{
+        QPixmap pb=QApplication::clipboard()->pixmap().copy();
+        if(!pb.isNull())
+        showScreenMessage(&pb);
+    });
+    trayMenu->addAction(clipB);
     QAction* quit=new QAction(tr("&Quit"), this);
-    connect(quit,SIGNAL(triggered()),this,SLOT(quit()));
+    connectL(quit,SIGNAL(triggered()),[]{QApplication::quit();});
     trayMenu->addAction(quit);
 
+}
+
+void MainWindow::closeEvent(QCloseEvent * event){
+    if (trayIcon->isVisible()) {
+            hide();
+            event->ignore();
+    }
 }
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -33,7 +52,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(shortcut,SIGNAL(activated()), this, SLOT(onSCH()));
     #endif
     trayMenu=new QMenu(this);
-    initMenu();
+    rebuildMenu();
 
     trayIcon=new QSystemTrayIcon(this);
     trayIcon->setIcon(QIcon(":/res/favicon.png"));
@@ -60,17 +79,7 @@ void MainWindow::trayActivated(QSystemTrayIcon::ActivationReason reason){
 void MainWindow::onSCH(){
 
     QPixmap grab=QPixmap::grabWindow(QApplication::desktop()->winId());
-
-
-    Qt::WindowFlags eFlags = sd->windowFlags ();
-    eFlags |= Qt::WindowStaysOnTopHint;
-    sd->setWindowFlags(eFlags);
-    sd->show();
-    sd->setScreen(&grab);
-    sd->setWindowState(sd->windowState() & ~Qt::WindowMinimized);
-    sd->activateWindow();
-    sd->raise();
-
+    showScreenMessage(&grab);
 }
 
 void MainWindow::on_comboBox_activated(const QString &arg1)

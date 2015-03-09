@@ -17,13 +17,11 @@ public:
     ~MainWindow();
     QSystemTrayIcon *trayIcon;
     void show();
-
+    void closeEvent(QCloseEvent *);
 private slots:
     void on_comboBox_activated(const QString &arg1);
     void onSCH();
-    void initMenu();
-    void quit();
-
+    void rebuildMenu();
     void trayActivated(QSystemTrayIcon::ActivationReason);
 private:
     Ui::MainWindow *ui;

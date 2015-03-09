@@ -6,7 +6,7 @@
 
 
 
-QT       += core gui network widgets
+QT       += core gui network
 
 CONFIG  += qxt
 QXT     += gui core
@@ -22,7 +22,8 @@ SOURCES += main.cpp\
     apiconnector.cpp \
     screendialog.cpp \
     clickablelabel.cpp \
-    edit.cpp
+    edit.cpp \
+    lambdaconnect.cpp
 
 HEADERS  += mainwindow.h \
     login.h \
@@ -31,13 +32,14 @@ HEADERS  += mainwindow.h \
     screendialog.h \
     clickablelabel.h \
     configuration.h \
-    edit.h
+    edit.h \
+    lambdaconnect.h
 
 FORMS    += mainwindow.ui \
     login.ui \
     screendialog.ui \
     edit.ui
-QMAKE_CXXFLAGS += -std=gnu++11
+QMAKE_CXXFLAGS += -std=gnu++11 -std=c++0x
 
 RESOURCES += \
     res.qrc

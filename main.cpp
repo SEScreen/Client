@@ -1,3 +1,4 @@
+
 #include <QApplication>
 #include "main.h"
 MainWindow *w;
@@ -22,12 +23,23 @@ void showLoginFrame(){
     l->move(QApplication::desktop()->availableGeometry().center() - l->rect().center());
 }
 
+void showScreenMessage(QPixmap* screen){
+    Qt::WindowFlags eFlags = sd->windowFlags ();
+    eFlags |= Qt::WindowStaysOnTopHint;
+    sd->setWindowFlags(eFlags);
+    sd->show();
+    sd->setScreen(screen);
+    sd->setWindowState(sd->windowState() & ~Qt::WindowMinimized);
+    sd->activateWindow();
+    sd->raise();
+}
+
 int main(int argc, char *argv[])
 {
 
 
     //Посылаешь запрос и если есть такой, то открываешь  w->show(); если нет, то код ниже
-    QApplication a(argc, argv);
+   QApplication a(argc, argv);
     apicon=new ApiConnector();
     w=new MainWindow;
     l=new Login;

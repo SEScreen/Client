@@ -1,5 +1,7 @@
 <RCC>
     <qresource prefix="/res">
         <file>favicon.png</file>
+        <file>aaargh_cyrillic_bold.ttf</file>
+        <file>aaargh_cyrillic.ttf</file>
     </qresource>
 </RCC>
