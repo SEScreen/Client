@@ -1,0 +1,2 @@
+version=1
+https://github.com/SEScreen/Client/tags .*/archive/[a-z](\d\S*)\.tar\.gz
