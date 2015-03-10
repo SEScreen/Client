@@ -1,0 +1,11 @@
+[Desktop Entry]
+  Version=1.0.0
+  Type=Application
+  Terminal=false
+  Name=SEScreen
+  Exec=/usr/bin/SEScreenClient 
+  Comment=Screen making program
+  Icon=/usr/share/pixmaps/editor.ico
+  StartupNotify=false
+  Encoding=UTF-8
+  Categories=PrintScreen;Screenshot;GNOME;KDE; 

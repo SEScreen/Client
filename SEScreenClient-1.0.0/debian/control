@@ -1,0 +1,12 @@
+Source: sescreenclient-src
+  Section: utils
+  Priority: optional
+  Maintainer: Ogorodnik Semen <sem-oro@yandex.ru>
+  Build-Depends: debhelper (>= 9), qtbase4-dev, qtbase4-dev-tools, qt4-qmake
+  Standards-Version: 3.9.6
+  Homepage: https://source-code-homepage.com
+
+  Package: sescreenclient
+  Architecture: any
+  Depends: ${misc:Depends}, ${shlibs:Depends}
+  Description: SEScreenClient is a screen-shot making and sharing application
