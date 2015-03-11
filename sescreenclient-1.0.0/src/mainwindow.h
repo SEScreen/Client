@@ -19,7 +19,6 @@ public:
     void show();
     void closeEvent(QCloseEvent *);
 private slots:
-    void on_comboBox_activated(const QString &arg1);
     void onSCH();
     void rebuildMenu();
     void trayActivated(QSystemTrayIcon::ActivationReason);

@@ -59,7 +59,7 @@ MainWindow::MainWindow(QWidget *parent) :
     trayIcon->show();
     trayIcon->setToolTip("SEScreen");
     trayIcon->setContextMenu(trayMenu);
-
+    connectL(ui->exit,SIGNAL(clicked()),[](){QFile file("config.txt"); file.remove(); QApplication::exit();});
 }
 
 void MainWindow::show(){
@@ -82,9 +82,3 @@ void MainWindow::onSCH(){
     showScreenMessage(&grab);
 }
 
-void MainWindow::on_comboBox_activated(const QString &arg1)
-{
-
-
-    qDebug("132");
-}

@@ -16,24 +16,28 @@ using namespace std;
 #include <QClipboard>
 #include <QMessageBox>
 #include <QGraphicsTextItem>
-void ScreenDialog::setScreen(QPixmap *grab){
-    WindowList wl=QxtWindowSystem::windows();
-    screen=grab->copy();
-    QRect r=grab->rect();
+
+
+void ScreenDialog::resetRect(){
+    QRect r=screen.rect();
     QRect rs=ui->imgEdit->rect();
     QPixmap sc;
     ui->imgEdit->updateGeometry();
     if(r.height()>r.width()){
-        sc =grab->scaledToHeight(rs.height());
+        sc =screen.scaledToHeight(rs.height());
     }else{
         cout<< rs.width()<<endl;
-        sc =grab->scaledToWidth(rs.width());
+        sc =screen.scaledToWidth(rs.width());
     }
     ui->imgEdit->setPixmap(sc);
-    connectL(ui->imgEdit,SIGNAL(clicked()),[wl]{Edit* e=new Edit();
-        e->setWindowList(wl);
-        e->show();
-    });
+}
+
+void ScreenDialog::setScreen(QPixmap *grab,WindowList wl){
+
+    screen=grab->copy();
+    resetRect();
+    this->wl=wl;
+
     this->move(QApplication::desktop()->availableGeometry().center() - this->rect().center());
 }
 
@@ -84,6 +88,10 @@ ScreenDialog::~ScreenDialog()
 void ScreenDialog::on_imgEdit_clicked()
 {
 
+    e->setWindowList(wl);
+    e->beginEdit();
+    e->showMaximized();
+    this->hide();
 }
 
 void ScreenDialog::on_cancelBut_clicked()
@@ -101,4 +109,16 @@ void ScreenDialog::on_copyButton_clicked()
 void ScreenDialog::on_uploadButton_clicked()
 {
     send();
+}
+#include <QFileDialog>
+void ScreenDialog::on_saveButton_clicked()
+{
+    QString addr=QFileDialog::getSaveFileName(this,tr("Save path"),"",tr("Images (*.png *.jpg)"));
+    QFile f( addr);
+
+    f.open( QIODevice::WriteOnly );
+    // store data in f
+
+    screen.save(&f,addr.mid(addr.indexOf('.')+1).toLatin1().data());
+    f.close();
 }

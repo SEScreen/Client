@@ -137,10 +137,13 @@ background:rgba(0,0,0,000);
 }</string>
      </property>
      <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;#&quot; style=&quot;text-decoration:none;color: #4183D7;&quot;&gt;Забыли пароль&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;http://sescreen.ddns.net/new_password.php&quot; style=&quot;text-decoration:none;color: #4183D7;&quot;&gt;Забыли пароль&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+     </property>
+     <property name="openExternalLinks">
+      <bool>true</bool>
      </property>
     </widget>
    </item>
@@ -163,7 +166,10 @@ background: rgba(0,0,0,000);
 }</string>
      </property>
      <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Чтобы начать пользоваться программой SEScreen,&lt;br/&gt;введите e-mail и пароль, указанные при &lt;a href=&quot;#&quot;&gt;&lt;span style=&quot; text-decoration: none; color:#0000ff; color:#4183D7;&quot;&gt;регистрации&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Чтобы начать пользоваться программой SEScreen,&lt;br/&gt;введите e-mail и пароль, указанные при &lt;a href=&quot;http://sescreen.ddns.net/registration.php&quot;&gt;&lt;span style=&quot; text-decoration: none; color:#0000ff; color:#4183D7;&quot;&gt;регистрации&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="openExternalLinks">
+      <bool>true</bool>
      </property>
     </widget>
    </item>

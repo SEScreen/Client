@@ -7,6 +7,7 @@ QString *apikey;
 QString *username;
 ScreenDialog *sd;
 ApiConnector *apicon;
+Edit* e;
 #include <QStyle>
 void setPropAndUpdate(QWidget *wid,const char *name, const QVariant &value){
     wid->setProperty(name,value);
@@ -28,22 +29,23 @@ void showScreenMessage(QPixmap* screen){
     eFlags |= Qt::WindowStaysOnTopHint;
     sd->setWindowFlags(eFlags);
     sd->show();
-    sd->setScreen(screen);
+    sd->setScreen(screen,QxtWindowSystem::windows());
     sd->setWindowState(sd->windowState() & ~Qt::WindowMinimized);
     sd->activateWindow();
     sd->raise();
 }
-
+#include <QFontDatabase>
 int main(int argc, char *argv[])
 {
 
-
-    //Посылаешь запрос и если есть такой, то открываешь  w->show(); если нет, то код ниже
    QApplication a(argc, argv);
+   QFontDatabase::addApplicationFont(":/res/aaargh_cyrillic.ttf");
+   QFontDatabase::addApplicationFont(":/res/aaargh_cyrillic_bold.ttf");
     apicon=new ApiConnector();
     w=new MainWindow;
     l=new Login;
     sd=new ScreenDialog;
+    e=new Edit();
 
     QFile file("config.txt");
     file.open(QIODevice::ReadOnly);

@@ -1,4 +1,0 @@
-?package(packagename):needs="x11" \
-      section="Applications/Utils" \
-      title="SEScreen" \
-      command="/usr/bin/SEScreenClient"

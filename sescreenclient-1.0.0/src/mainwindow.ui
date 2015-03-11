@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>428</width>
-    <height>285</height>
+    <height>148</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -36,8 +36,8 @@
      <rect>
       <x>20</x>
       <y>10</y>
-      <width>171</width>
-      <height>31</height>
+      <width>391</width>
+      <height>71</height>
      </rect>
     </property>
     <property name="font">
@@ -53,41 +53,20 @@
 }</string>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;Настройки&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:400;&quot;&gt;Для создания скриншота нажмите Print Screen&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:400;&quot;&gt;Для редактирования щелчок не окне скриншота&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_2">
+   <widget class="QPushButton" name="exit">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>60</y>
-      <width>151</width>
-      <height>31</height>
+      <x>110</x>
+      <y>80</y>
+      <width>231</width>
+      <height>22</height>
      </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Aaargh</family>
-      <pointsize>9</pointsize>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QLabel{
-	font-family:Aaargh;
-}</string>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Адрес сохранения: &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-    </property>
-   </widget>
-   <widget class="QComboBox" name="comboBox">
-    <property name="geometry">
-     <rect>
-      <x>180</x>
-      <y>60</y>
-      <width>91</width>
-      <height>31</height>
-     </rect>
+     <string>Выход из учетной записи</string>
     </property>
    </widget>
   </widget>

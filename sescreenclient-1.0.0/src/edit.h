@@ -20,8 +20,18 @@ public:
     void setWindowList(WindowList list);
     WindowList list;
     QRect findWindowRect(const QPoint&);
+    void closeEvent(QCloseEvent *);
+    void beginEdit();
+
 public slots:
     void onGSVclick(QMouseEvent *e);
+private slots:
+    void on_select_clicked();
+
+    void on_pencil_clicked();
+
+    void on_marker_clicked();
+
 private:
     Ui::Edit *ui;
 };

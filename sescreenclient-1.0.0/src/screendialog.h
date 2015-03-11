@@ -5,6 +5,7 @@
 #include <QNetworkReply>
 #include <QHttpMultiPart>
 #include <QBuffer>
+#include <QxtWindowSystem>
 namespace Ui {
 class ScreenDialog;
 }
@@ -17,10 +18,13 @@ class ScreenDialog : public QWidget
 public:
     explicit ScreenDialog(QWidget *parent = 0);
     ~ScreenDialog();
-    void setScreen(QPixmap *grab);
+    void setScreen(QPixmap *grab,WindowList wl);
     QPixmap screen;
+    WindowList wl;
     void send();
+    void resetRect();
 private slots:
+
     void on_imgEdit_clicked();
 
     void on_cancelBut_clicked();
@@ -29,6 +33,8 @@ private slots:
 
     void on_uploadButton_clicked();
     void replyFinished(QNetworkReply*);
+
+    void on_saveButton_clicked();
 
 private:
     Ui::ScreenDialog *ui;
